@@ -7,6 +7,8 @@ import type { ReactNode } from "react";
 
 import { motion } from "framer-motion";
 
+import daryImg from '../assets/dary_service_loading_page.png';
+
 interface Project {
   id: number;
   title: string;
@@ -15,19 +17,21 @@ interface Project {
   repo: string;
   demo: string;
   imgAlt: string;
+  img: string,
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Infant Health Tracker",
+    title: "Dary Service",
     description:
-      "Android app to track baby vitals and generate reports. Built with Kotlin, Jetpack Compose, PHP backend.",
-    tech: ["Kotlin", "Jetpack Compose", "PHP", "MySQL"],
-    repo: "https://github.com/your-username/infant-health-app", // TODO: replace
-    demo: "#", // TODO: replace with APK or live demo
-    imgAlt: "Phone mockup - Infant Health Tracker",
-  },
+      "Android app to find handymans or jobs. Built with Kotlin, Jetpack compose, epress.js backend. Hosted on Render",
+    tech: ["Kotlin", "Jetpack compose", "Express.js", "PostgreSQL"],
+    repo: "https://drive.google.com/file/d/1sv5W7gamUM3F5ImsRtSgxb3qEgyYWMX5/view?usp=drive_link",
+    demo: "#",
+    imgAlt: "Phone mockup - Dary Service",
+    img: daryImg,
+  },  
   {
     id: 2,
     title: "UserDetailsAppCompose",
@@ -37,6 +41,7 @@ const projects: Project[] = [
     repo: "https://github.com/your-username/UserDetailsAppCompose", // TODO: replace
     demo: "#",
     imgAlt: "Phone mockup - UserDetailsAppCompose",
+    img: "",
   },
   {
     id: 3,
@@ -47,6 +52,7 @@ const projects: Project[] = [
     repo: "https://github.com/your-username/todo-habit", // TODO: replace
     demo: "#",
     imgAlt: "Phone mockup - Todo & Habit Tracker",
+    img: "",
   },
 ];
 
@@ -56,10 +62,10 @@ export default function MobileDevPortfolio() {
       <header className="max-w-3xl mx-auto px-6 pt-10 pb-6">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-slate-900 font-bold">AF</div>
+            <div className="w-10 h-10 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-slate-900 font-bold">AL</div>
             <div>
-              <h1 className="text-lg font-semibold">Aymen Feu</h1>
-              <p className="text-xs text-slate-400">Mobile Developer — Android & Flutter</p>
+              <h1 className="text-lg font-semibold">Aimen Lalaibia</h1>
+              <p className="text-xs text-slate-400">Software Engineer | Mobile Developer — Android & Flutter</p>
             </div>
           </div>
           <a
@@ -77,10 +83,13 @@ export default function MobileDevPortfolio() {
             transition={{ duration: 0.5 }}
             className="p-5 bg-slate-800/60 rounded-2xl shadow-lg"
           >
-            <h2 className="text-2xl font-bold">Hi, I'm Aymen — Android & Flutter dev</h2>
+            <h2 className="text-2xl font-bold">Hi, I'm Aimen — Software Engineer || Android & Flutter dev</h2>
             <p className="mt-2 text-sm text-slate-300">
               I build clean, maintainable mobile apps with great UX. I love Jetpack Compose,
               Kotlin and building practical tools used in real life.
+            </p>
+            <p className="mt-2 text-sm text-slate-300">
+             Worked on multiple projects, from freelance apps to platforms for start-ups
             </p>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -89,18 +98,20 @@ export default function MobileDevPortfolio() {
               <Tag>Jetpack Compose</Tag>
               <Tag>Flutter</Tag>
               <Tag>UI/UX</Tag>
+              <Tag>Express.Js</Tag>
+              <Tag>Html / CSS / Js</Tag>
               <Tag>APIs</Tag>
             </div>
 
             <div className="mt-5 flex gap-3">
               <a
-                href="https://github.com/your-username" // TODO: replace
+                href="https://github.com/Aymen2303"
                 className="px-4 py-2 bg-slate-700/50 rounded-lg text-xs border border-slate-700"
               >
                 GitHub
               </a>
               <a
-                href="#projects"
+                href="https://github.com/Aymen2303?tab=repositories"
                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-xs text-slate-900 font-semibold"
               >
                 See projects
@@ -132,8 +143,7 @@ export default function MobileDevPortfolio() {
             >
               <div className="flex items-start gap-4">
                 <PhoneMockup>
-                  {/* TODO: replace with real screenshot */}
-                  <div className="w-full h-full flex items-center justify-center text-xs text-slate-400">Screenshot</div>
+                <img  src={p.img}  alt={p.imgAlt}  className="w-full h-full object-cover"/>
                 </PhoneMockup>
 
                 <div className="flex-1">
@@ -187,19 +197,19 @@ export default function MobileDevPortfolio() {
 
           <div className="mt-4 flex flex-col gap-3">
             <div className="text-xs text-slate-300">Email</div>
-            <div className="p-3 bg-slate-800/30 rounded">aymen.your@email.com</div>
+            <div className="p-3 bg-slate-800/30 rounded">aimenlalaibia0@email.com</div>
 
             <div className="text-xs text-slate-300">LinkedIn</div>
-            <a href="#" className="p-3 bg-slate-800/30 rounded">linkedin.com/in/your-profile</a>
+            <a href="#" className="p-3 bg-slate-800/30 rounded">https://www.linkedin.com/in/lalaibia-aimen-a2380624a/</a>
 
             <div className="mt-4 flex gap-2">
-              <a href="mailto:aymen.your@email.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
-              <a href="https://github.com/your-username" className="flex-1 text-center py-2 rounded-lg border border-slate-700">GitHub</a>
+              <a href="mailto:aimenlalaibia0@email.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
+              <a href="https://github.com/Aymen2303" className="flex-1 text-center py-2 rounded-lg border border-slate-700">GitHub</a>
             </div>
           </div>
         </section>
 
-        <footer className="mt-8 pb-10 text-center text-xs text-slate-500">© {new Date().getFullYear()} Aymen Feu — Mobile Developer</footer>
+        <footer className="mt-8 pb-10 text-center text-xs text-slate-500">© {new Date().getFullYear()} Aimen Lalaibia — software Engineer || Mobile Developer</footer>
       </main>
     </div>
   );
