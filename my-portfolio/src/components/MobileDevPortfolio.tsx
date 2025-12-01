@@ -89,7 +89,7 @@ export default function MobileDevPortfolio() {
               Kotlin and building practical tools used in real life.
             </p>
             <p className="mt-2 text-sm text-slate-300">
-             Worked on multiple projects, from freelance apps to platforms for start-ups
+             Worked on multiple projects, from confidential projects, freelance apps to platforms for start-ups
             </p>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -197,13 +197,13 @@ export default function MobileDevPortfolio() {
 
           <div className="mt-4 flex flex-col gap-3">
             <div className="text-xs text-slate-300">Email</div>
-            <div className="p-3 bg-slate-800/30 rounded">aimenlalaibia0@email.com</div>
+            <div className="p-3 bg-slate-800/30 rounded">aimenlalaibia0@gmail.com</div>
 
             <div className="text-xs text-slate-300">LinkedIn</div>
             <a href="#" className="p-3 bg-slate-800/30 rounded">https://www.linkedin.com/in/lalaibia-aimen-a2380624a/</a>
 
             <div className="mt-4 flex gap-2">
-              <a href="mailto:aimenlalaibia0@email.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
+              <a href="mailto:aimenlalaibia0@gmail.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
               <a href="https://github.com/Aymen2303" className="flex-1 text-center py-2 rounded-lg border border-slate-700">GitHub</a>
             </div>
           </div>
