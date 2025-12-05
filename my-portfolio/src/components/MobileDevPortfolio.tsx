@@ -16,6 +16,7 @@ interface Project {
   tech: string[];
   repo: string;
   demo: string;
+  onDemoClick?: () => void;
   imgAlt: string;
   img: string,
 }
@@ -25,10 +26,11 @@ const projects: Project[] = [
     id: 1,
     title: "Dary Service",
     description:
-      "Android app to find handymans or jobs. Built with Kotlin, Jetpack compose, epress.js backend. Hosted on Render",
+      "Android app to find handymans or jobs. Built with Kotlin, Jetpack compose, express.js backend. Hosted on Render",
     tech: ["Kotlin", "Jetpack compose", "Express.js", "PostgreSQL"],
     repo: "https://drive.google.com/file/d/1sv5W7gamUM3F5ImsRtSgxb3qEgyYWMX5/view?usp=drive_link",
-    demo: "#",
+    demo: "",
+    onDemoClick: myAlert(),
     imgAlt: "Phone mockup - Dary Service",
     img: daryImg,
   },  
@@ -36,12 +38,13 @@ const projects: Project[] = [
     id: 2,
     title: "UserDetailsAppCompose",
     description:
-      "A Jetpack Compose app that fetches user data from an API and displays polished UI cards.",
-    tech: ["Kotlin", "Compose", "Retrofit", "Coroutines"],
+      "A Jetpack Compose app that fetches user data from an API and displays polished UI cards. Re-coded this project using Flutter as well.",
+    tech: ["Kotlin", "Compose", "Retrofit", "Coroutines", "Flutter"],
     repo: "https://github.com/your-username/UserDetailsAppCompose", // TODO: replace
     demo: "#",
     imgAlt: "Phone mockup - UserDetailsAppCompose",
     img: "",
+     onDemoClick: myAlert(),
   },
   {
     id: 3,
@@ -53,6 +56,7 @@ const projects: Project[] = [
     demo: "#",
     imgAlt: "Phone mockup - Todo & Habit Tracker",
     img: "",
+     onDemoClick: myAlert(),
   },
 ];
 
@@ -165,14 +169,24 @@ export default function MobileDevPortfolio() {
                     >
                       View code
                     </a>
-                    <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
-                    >
-                      Demo
-                    </a>
+                    {p.demo ? (
+  <a
+    href={p.demo}
+    target="_blank"
+    rel="noreferrer"
+    className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
+  >
+    Demo
+  </a>
+) : (
+  <button
+    onClick={p.onDemoClick}
+    className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
+  >
+    Demo
+  </button>
+)}
+
                   </div>
                 </div>
               </div>
@@ -244,4 +258,11 @@ function PhoneMockup({ children }: PhoneMockupProps) {
       </div>
     </div>
   );
+}
+
+//Functions
+function myAlert() {
+  return () => {
+    alert("Since this project is confidential, the code repository is not available.");
+  };
 }
