@@ -8,6 +8,8 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 import daryImg from '../assets/dary_service_loading_page.png';
+import healthImg from '../assets/health_project.png';
+import babyTracker from '../assets/baby_tracker.png';
 
 interface Project {
   id: number;
@@ -16,7 +18,7 @@ interface Project {
   tech: string[];
   repo: string;
   demo: string;
-  onDemoClick?: () => void;
+  onRepoClick?: () => void;
   imgAlt: string;
   img: string,
 }
@@ -28,35 +30,35 @@ const projects: Project[] = [
     description:
       "Android app to find handymans or jobs. Built with Kotlin, Jetpack compose, express.js backend. Hosted on Render",
     tech: ["Kotlin", "Jetpack compose", "Express.js", "PostgreSQL"],
-    repo: "https://drive.google.com/file/d/1sv5W7gamUM3F5ImsRtSgxb3qEgyYWMX5/view?usp=drive_link",
-    demo: "",
-    onDemoClick: myAlert(),
+    repo: "",
+    demo: "https://drive.google.com/file/d/1sv5W7gamUM3F5ImsRtSgxb3qEgyYWMX5/view?usp=drive_link",
+    onRepoClick: myAlert(),
     imgAlt: "Phone mockup - Dary Service",
     img: daryImg,
   },  
   {
     id: 2,
-    title: "UserDetailsAppCompose",
+    title: "Vaccine tracker app for babies",
     description:
-      "A Jetpack Compose app that fetches user data from an API and displays polished UI cards. Re-coded this project using Flutter as well.",
-    tech: ["Kotlin", "Compose", "Retrofit", "Coroutines", "Flutter"],
-    repo: "https://github.com/your-username/UserDetailsAppCompose", // TODO: replace
+      "An android app to track babies wellbeing, vaccines growth and overall health. built with Java and xml layouts, the goal of displaying this app here is to show my experience with mobile development",
+    tech: ["Java", "XML layouts", "Php", "Postman"],
+    repo: "https://github.com/Aymen2303/Android_healthcareApp", 
     demo: "#",
     imgAlt: "Phone mockup - UserDetailsAppCompose",
-    img: "",
-     onDemoClick: myAlert(),
+    img: babyTracker,
+     onRepoClick: myAlert(),
   },
   {
     id: 3,
-    title: "Todo & Habit Tracker",
+    title: "Health tracker",
     description:
-      "A lightweight Flutter app for todos and habits with local persistence and clean UI.",
-    tech: ["Flutter", "Dart", "SQFlite"],
-    repo: "https://github.com/your-username/todo-habit", // TODO: replace
+      "A healthcare web app, this project is confidential no details can be shared.",
+    tech: [""],
+    repo: "", // TODO: replace
     demo: "#",
     imgAlt: "Phone mockup - Todo & Habit Tracker",
-    img: "",
-     onDemoClick: myAlert(),
+    img: healthImg,
+     onRepoClick: myAlert(),
   },
 ];
 
@@ -161,14 +163,24 @@ export default function MobileDevPortfolio() {
                   </div>
 
                   <div className="mt-4 flex gap-2">
-                    <a
-                      href={p.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs px-3 py-2 border border-slate-700 rounded-lg"
-                    >
-                      View code
-                    </a>
+                    {p.repo ? (
+  <a
+    href={p.repo}
+    target="_blank"
+    rel="noreferrer"
+    className="text-xs px-3 py-2 border border-slate-700 rounded-lg"
+  >
+    View code
+  </a>
+) : (
+  <button
+    onClick={p.onRepoClick}
+    className="text-xs px-3 py-2 border border-slate-700 rounded-lg"
+  >
+    View code
+  </button>
+)}
+
                     {p.demo ? (
   <a
     href={p.demo}
@@ -180,7 +192,7 @@ export default function MobileDevPortfolio() {
   </a>
 ) : (
   <button
-    onClick={p.onDemoClick}
+    onClick={p.onRepoClick}
     className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
   >
     Demo
@@ -196,12 +208,11 @@ export default function MobileDevPortfolio() {
 
         <section className="mt-8 bg-slate-800/40 p-4 rounded-2xl">
           <h3 className="font-semibold">Other notable repos</h3>
-          <p className="text-xs text-slate-400 mt-1">(Your GitHub has many — display the rest in a dedicated page or link.)</p>
+          <p className="text-xs text-slate-400 mt-1">(Some other projects I worked on)</p>
           <div className="mt-3 flex gap-2 flex-wrap">
+            <SmallRepo name="Mobile apps for entreprise" link="#" />
+            <SmallRepo name="Leave system manager" link="#" />
             <SmallRepo name="weather-app" link="#" />
-            <SmallRepo name="chat-app" link="#" />
-            <SmallRepo name="ui-clone" link="#" />
-            <SmallRepo name="ci-scripts" link="#" />
           </div>
         </section>
 
@@ -214,7 +225,7 @@ export default function MobileDevPortfolio() {
             <div className="p-3 bg-slate-800/30 rounded">aimenlalaibia0@gmail.com</div>
 
             <div className="text-xs text-slate-300">LinkedIn</div>
-            <a href="#" className="p-3 bg-slate-800/30 rounded">https://www.linkedin.com/in/lalaibia-aimen-a2380624a/</a>
+            <a href="https://www.linkedin.com/in/lalaibia-aimen-a2380624a/" className="p-3 bg-slate-800/30 rounded">https://www.linkedin.com/in/lalaibia-aimen-a2380624a/</a>
 
             <div className="mt-4 flex gap-2">
               <a href="mailto:aimenlalaibia0@gmail.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
