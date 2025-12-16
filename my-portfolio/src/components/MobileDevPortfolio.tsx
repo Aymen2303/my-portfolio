@@ -7,6 +7,10 @@ import type { ReactNode } from "react";
 
 import { motion } from "framer-motion";
 
+import daryImg from '../assets/dary_service_loading_page.png';
+import healthImg from '../assets/health_project.png';
+import babyTracker from '../assets/baby_tracker.png';
+
 interface Project {
   id: number;
   title: string;
@@ -14,39 +18,47 @@ interface Project {
   tech: string[];
   repo: string;
   demo: string;
+  onRepoClick?: () => void;
   imgAlt: string;
+  img: string,
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Infant Health Tracker",
+    title: "Dary Service",
     description:
-      "Android app to track baby vitals and generate reports. Built with Kotlin, Jetpack Compose, PHP backend.",
-    tech: ["Kotlin", "Jetpack Compose", "PHP", "MySQL"],
-    repo: "https://github.com/your-username/infant-health-app", // TODO: replace
-    demo: "#", // TODO: replace with APK or live demo
-    imgAlt: "Phone mockup - Infant Health Tracker",
-  },
+      "Android app to find handymans or jobs. Built with Kotlin, Jetpack compose, express.js backend. Hosted on Render",
+    tech: ["Kotlin", "Jetpack compose", "Express.js", "PostgreSQL"],
+    repo: "",
+    demo: "https://drive.google.com/file/d/1sv5W7gamUM3F5ImsRtSgxb3qEgyYWMX5/view?usp=drive_link",
+    onRepoClick: myAlert(),
+    imgAlt: "Phone mockup - Dary Service",
+    img: daryImg,
+  },  
   {
     id: 2,
-    title: "UserDetailsAppCompose",
+    title: "Vaccine tracker app for babies",
     description:
-      "A Jetpack Compose app that fetches user data from an API and displays polished UI cards.",
-    tech: ["Kotlin", "Compose", "Retrofit", "Coroutines"],
-    repo: "https://github.com/your-username/UserDetailsAppCompose", // TODO: replace
+      "An android app to track babies wellbeing, vaccines growth and overall health. built with Java and xml layouts, the goal of displaying this app here is to show my experience with mobile development",
+    tech: ["Java", "XML layouts", "Php", "Postman"],
+    repo: "https://github.com/Aymen2303/Android_healthcareApp", 
     demo: "#",
     imgAlt: "Phone mockup - UserDetailsAppCompose",
+    img: babyTracker,
+     onRepoClick: myAlert(),
   },
   {
     id: 3,
-    title: "Todo & Habit Tracker",
+    title: "Health tracker",
     description:
-      "A lightweight Flutter app for todos and habits with local persistence and clean UI.",
-    tech: ["Flutter", "Dart", "SQFlite"],
-    repo: "https://github.com/your-username/todo-habit", // TODO: replace
+      "A healthcare web app, this project is confidential no details can be shared.",
+    tech: [""],
+    repo: "", // TODO: replace
     demo: "#",
     imgAlt: "Phone mockup - Todo & Habit Tracker",
+    img: healthImg,
+     onRepoClick: myAlert(),
   },
 ];
 
@@ -56,10 +68,10 @@ export default function MobileDevPortfolio() {
       <header className="max-w-3xl mx-auto px-6 pt-10 pb-6">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-slate-900 font-bold">AF</div>
+            <div className="w-10 h-10 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-slate-900 font-bold">AL</div>
             <div>
-              <h1 className="text-lg font-semibold">Aymen Feu</h1>
-              <p className="text-xs text-slate-400">Mobile Developer — Android & Flutter</p>
+              <h1 className="text-lg font-semibold">Aimen Lalaibia</h1>
+              <p className="text-xs text-slate-400">Software Engineer | Mobile Developer — Android & Flutter</p>
             </div>
           </div>
           <a
@@ -77,10 +89,13 @@ export default function MobileDevPortfolio() {
             transition={{ duration: 0.5 }}
             className="p-5 bg-slate-800/60 rounded-2xl shadow-lg"
           >
-            <h2 className="text-2xl font-bold">Hi, I'm Aymen — Android & Flutter dev</h2>
+            <h2 className="text-2xl font-bold">Hi, I'm Aimen — Software Engineer || Android & Flutter dev</h2>
             <p className="mt-2 text-sm text-slate-300">
               I build clean, maintainable mobile apps with great UX. I love Jetpack Compose,
               Kotlin and building practical tools used in real life.
+            </p>
+            <p className="mt-2 text-sm text-slate-300">
+             Worked on multiple projects, from confidential projects, freelance apps to platforms for start-ups
             </p>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -89,18 +104,20 @@ export default function MobileDevPortfolio() {
               <Tag>Jetpack Compose</Tag>
               <Tag>Flutter</Tag>
               <Tag>UI/UX</Tag>
+              <Tag>Express.Js</Tag>
+              <Tag>Html / CSS / Js</Tag>
               <Tag>APIs</Tag>
             </div>
 
             <div className="mt-5 flex gap-3">
               <a
-                href="https://github.com/your-username" // TODO: replace
+                href="https://github.com/Aymen2303"
                 className="px-4 py-2 bg-slate-700/50 rounded-lg text-xs border border-slate-700"
               >
                 GitHub
               </a>
               <a
-                href="#projects"
+                href="https://github.com/Aymen2303?tab=repositories"
                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-xs text-slate-900 font-semibold"
               >
                 See projects
@@ -132,8 +149,7 @@ export default function MobileDevPortfolio() {
             >
               <div className="flex items-start gap-4">
                 <PhoneMockup>
-                  {/* TODO: replace with real screenshot */}
-                  <div className="w-full h-full flex items-center justify-center text-xs text-slate-400">Screenshot</div>
+                <img  src={p.img}  alt={p.imgAlt}  className="w-full h-full object-cover"/>
                 </PhoneMockup>
 
                 <div className="flex-1">
@@ -147,22 +163,42 @@ export default function MobileDevPortfolio() {
                   </div>
 
                   <div className="mt-4 flex gap-2">
-                    <a
-                      href={p.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs px-3 py-2 border border-slate-700 rounded-lg"
-                    >
-                      View code
-                    </a>
-                    <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
-                    >
-                      Demo
-                    </a>
+                    {p.repo ? (
+  <a
+    href={p.repo}
+    target="_blank"
+    rel="noreferrer"
+    className="text-xs px-3 py-2 border border-slate-700 rounded-lg"
+  >
+    View code
+  </a>
+) : (
+  <button
+    onClick={p.onRepoClick}
+    className="text-xs px-3 py-2 border border-slate-700 rounded-lg"
+  >
+    View code
+  </button>
+)}
+
+                    {p.demo ? (
+  <a
+    href={p.demo}
+    target="_blank"
+    rel="noreferrer"
+    className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
+  >
+    Demo
+  </a>
+) : (
+  <button
+    onClick={p.onRepoClick}
+    className="text-xs px-3 py-2 bg-slate-700/40 rounded-lg"
+  >
+    Demo
+  </button>
+)}
+
                   </div>
                 </div>
               </div>
@@ -172,12 +208,11 @@ export default function MobileDevPortfolio() {
 
         <section className="mt-8 bg-slate-800/40 p-4 rounded-2xl">
           <h3 className="font-semibold">Other notable repos</h3>
-          <p className="text-xs text-slate-400 mt-1">(Your GitHub has many — display the rest in a dedicated page or link.)</p>
+          <p className="text-xs text-slate-400 mt-1">(Some other projects I worked on)</p>
           <div className="mt-3 flex gap-2 flex-wrap">
+            <SmallRepo name="Mobile apps for entreprise" link="#" />
+            <SmallRepo name="Leave system manager" link="#" />
             <SmallRepo name="weather-app" link="#" />
-            <SmallRepo name="chat-app" link="#" />
-            <SmallRepo name="ui-clone" link="#" />
-            <SmallRepo name="ci-scripts" link="#" />
           </div>
         </section>
 
@@ -187,19 +222,19 @@ export default function MobileDevPortfolio() {
 
           <div className="mt-4 flex flex-col gap-3">
             <div className="text-xs text-slate-300">Email</div>
-            <div className="p-3 bg-slate-800/30 rounded">aymen.your@email.com</div>
+            <div className="p-3 bg-slate-800/30 rounded">aimenlalaibia0@gmail.com</div>
 
             <div className="text-xs text-slate-300">LinkedIn</div>
-            <a href="#" className="p-3 bg-slate-800/30 rounded">linkedin.com/in/your-profile</a>
+            <a href="https://www.linkedin.com/in/lalaibia-aimen-a2380624a/" className="p-3 bg-slate-800/30 rounded">https://www.linkedin.com/in/lalaibia-aimen-a2380624a/</a>
 
             <div className="mt-4 flex gap-2">
-              <a href="mailto:aymen.your@email.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
-              <a href="https://github.com/your-username" className="flex-1 text-center py-2 rounded-lg border border-slate-700">GitHub</a>
+              <a href="mailto:aimenlalaibia0@gmail.com" className="flex-1 text-center py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-900 font-semibold">Email me</a>
+              <a href="https://github.com/Aymen2303" className="flex-1 text-center py-2 rounded-lg border border-slate-700">GitHub</a>
             </div>
           </div>
         </section>
 
-        <footer className="mt-8 pb-10 text-center text-xs text-slate-500">© {new Date().getFullYear()} Aymen Feu — Mobile Developer</footer>
+        <footer className="mt-8 pb-10 text-center text-xs text-slate-500">© {new Date().getFullYear()} Aimen Lalaibia — software Engineer || Mobile Developer</footer>
       </main>
     </div>
   );
@@ -234,4 +269,11 @@ function PhoneMockup({ children }: PhoneMockupProps) {
       </div>
     </div>
   );
+}
+
+//Functions
+function myAlert() {
+  return () => {
+    alert("Since this project is confidential, the code repository is not available.");
+  };
 }
